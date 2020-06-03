@@ -1,0 +1,45 @@
+int red = D2;
+int green = D4;
+int blue = D7;
+
+void setup() {
+    pinMode(red, OUTPUT);
+    digitalWrite(red, LOW);
+    pinMode(green, OUTPUT);
+    digitalWrite(green, LOW);
+    pinMode(blue, OUTPUT);
+    digitalWrite(blue, LOW);
+    
+    Particle.function("lights", lights);
+
+}
+
+int lights(String command){
+    //red
+    if (digitalRead(red) == LOW && command == "red"){
+        digitalWrite(red, HIGH);
+    }
+    else if (digitalRead(red) == HIGH && command == "red"){
+        digitalWrite(red, LOW);
+    }
+    //green
+    if (digitalRead(green) == LOW && command == "green"){
+        digitalWrite(green, HIGH);
+    }
+    else if (digitalRead(green) == HIGH && command == "green"){
+        digitalWrite(green, LOW);
+    }
+    //blue
+    if (digitalRead(blue) == LOW && command == "blue"){
+        digitalWrite(blue, HIGH);
+    }
+    else if (digitalRead(blue) == HIGH && command == "blue"){
+        digitalWrite(blue, LOW);
+    }
+    return 0;
+
+}
+
+void loop() {
+
+}
